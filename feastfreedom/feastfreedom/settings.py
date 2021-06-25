@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-#&v@h(kr@s##ko#d!-(8kpo&qlxfux1wu9dnuef7)b-!^-1uh+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['100.24.4.172'] # add 127.0.0.1 if using localhost. DO NOT DELETE IP ALREADY IN THERE
 
 
 # Application definition
@@ -77,12 +77,12 @@ WSGI_APPLICATION = 'feastfreedom.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
+        'ENGINE': 'django.db.backends.mysql',
         'NAME': 'feastfreedom',
         'USENAME': 'root', 
         'PASSWORD': 'feastfreedom', 
-        'HOST': 'database-1.ceniuyg93mtq.us-east-1.rds.amazonaws.com', 
-        'PORT': '5432'
+        'HOST': 'database-2.ceniuyg93mtq.us-east-1.rds.amazonaws.com', 
+        'PORT': '3306'
     }
 }
 
