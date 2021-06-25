@@ -22,7 +22,7 @@ SECRET_KEY = 'django-insecure-#&v@h(kr@s##ko#d!-(8kpo&qlxfux1wu9dnuef7)b-!^-1uh+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['100.24.4.172']
 
 
 # Application definition
@@ -35,7 +35,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'kitchen',
-    'storages'
+    'storages',
 ]
 
 MIDDLEWARE = [
@@ -76,6 +76,7 @@ DATABASES = {
     'default': {
 <<<<<<< HEAD
         'ENGINE': 'django.db.backends.sqlite3',
+<<<<<<< HEAD
         'NAME': BASE_DIR / 'db.sqlite3',
 =======
         'ENGINE': 'django.db.backends.mysql',
@@ -85,7 +86,12 @@ DATABASES = {
         'HOST': 'database-2.ceniuyg93mtq.us-east-1.rds.amazonaws.com',
         'PORT': '3306'
 >>>>>>> 0bc9d99d5bc3cd9b6709ca976bed346df6bbe650
+=======
+        #'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+>>>>>>> aqil
     }
+
 }
 
 # Password validation
@@ -123,31 +129,31 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
-# USE_S3=True
+USE_S3=True
 
-# if USE_S3:
-#     # aws settings
-#     AWS_ACCESS_KEY_ID = 'AWS_ACCESS_KEY_ID'
-#     AWS_SECRET_ACCESS_KEY = 'AWS_SECRET_ACCESS_KEY'
-#     AWS_STORAGE_BUCKET_NAME = 'feast-freedom8'
-#     AWS_DEFAULT_ACL = None
-#     AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
-#     AWS_S3_OBJECT_PARAMETERS = {'CacheControl': 'max-age=86400'}
-#     # s3 static settings
-#     STATIC_LOCATION = 'static'
-#     STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{STATIC_LOCATION}/'
-#     STATICFILES_STORAGE = 'feastfreedom.storage_backends.StaticStorage'
-#     # s3 public media settings
-#     PUBLIC_MEDIA_LOCATION = 'media'
-#     MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{PUBLIC_MEDIA_LOCATION}/'
-#     DEFAULT_FILE_STORAGE = 'feastfreedom.storage_backends.PublicMediaStorage'
-#     # s3 private media settings
-#     PRIVATE_MEDIA_LOCATION = 'private'
-#     PRIVATE_FILE_STORAGE = 'feastfreedom.storage_backends.PrivateMediaStorage'
-# else:
-#     STATIC_URL = '/staticfiles/'
-#     STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-#     MEDIA_URL = '/mediafiles/'
-#     MEDIA_ROOT = os.path.join(BASE_DIR, 'mediafiles')
+if USE_S3:
+# aws settings
+    AWS_ACCESS_KEY_ID = 'AKIA2RJUAH2GH33PFLX3'
+    AWS_SECRET_ACCESS_KEY = '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'
+    AWS_STORAGE_BUCKET_NAME = 'feast-freedom8'
+    AWS_DEFAULT_ACL = None
+    AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
+    AWS_S3_OBJECT_PARAMETERS = {'CacheControl': 'max-age=86400'}
+    # s3 static settings
+    STATIC_LOCATION = 'static'
+    STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{STATIC_LOCATION}/'
+    STATICFILES_STORAGE = 'feastfreedom.storage_backends.StaticStorage'
+    # s3 public media settings
+    PUBLIC_MEDIA_LOCATION = 'media'
+    MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{PUBLIC_MEDIA_LOCATION}/'
+    DEFAULT_FILE_STORAGE = 'feastfreedom.storage_backends.PublicMediaStorage'
+    # s3 private media settings
+    PRIVATE_MEDIA_LOCATION = 'private'
+    PRIVATE_FILE_STORAGE = 'feastfreedom.storage_backends.PrivateMediaStorage'
+else:
+    STATIC_URL = '/staticfiles/'
+    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+    MEDIA_URL = '/mediafiles/'
+    MEDIA_ROOT = os.path.join(BASE_DIR, 'mediafiles')
 
-# STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
+STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
