@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'kitchen',
-    'storages'
+    'storages', # for Amazon S3
 ]
 
 MIDDLEWARE = [
@@ -79,9 +79,9 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'feastfreedom',
-        'USENAME': 'root', 
-        'PASSWORD': 'feastfreedom', 
-        'HOST': 'database-1.ceniuyg93mtq.us-east-1.rds.amazonaws.com', 
+        'USERNAME': 'root',
+        'PASSWORD': 'feastfreedom',
+        'HOST': 'database-1.ceniuyg93mtq.us-east-1.rds.amazonaws.com',
         'PORT': '5432'
     }
 }
