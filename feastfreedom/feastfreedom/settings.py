@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-#&v@h(kr@s##ko#d!-(8kpo&qlxfux1wu9dnuef7)b-!^-1uh+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['100.24.4.172'] # add 127.0.0.1 if using localhost. DO NOT DELETE IP ALREADY IN THERE
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'kitchen',
-    'storages',
+    'storages'
 ]
 
 MIDDLEWARE = [
@@ -77,15 +77,10 @@ WSGI_APPLICATION = 'feastfreedom.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'feastfreedom',
-        'USENAME': 'root', 
-        'PASSWORD': 'feastfreedom', 
-        'HOST': 'database-2.ceniuyg93mtq.us-east-1.rds.amazonaws.com', 
-        'PORT': '3306'
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
