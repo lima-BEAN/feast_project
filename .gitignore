@@ -1,7 +1,7 @@
 
 # Created by https://www.toptal.com/developers/gitignore/api/python,django,angular,macos,windows,linux
 # Edit at https://www.toptal.com/developers/gitignore?templates=python,django,angular,macos,windows,linux
-
+myvenv
 ### Angular ###
 ## Angular ##
 # compiled output

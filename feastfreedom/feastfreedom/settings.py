@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/3.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
-
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'kitchen',
+    'storages'
 ]
 
 MIDDLEWARE = [
@@ -55,7 +56,7 @@ ROOT_URLCONF = 'feastfreedom.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -76,8 +77,12 @@ WSGI_APPLICATION = 'feastfreedom.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'feastfreedom',
+        'USENAME': 'root', 
+        'PASSWORD': 'feastfreedom', 
+        'HOST': 'database-1.ceniuyg93mtq.us-east-1.rds.amazonaws.com', 
+        'PORT': '5432'
     }
 }
 
@@ -117,10 +122,31 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
+# USE_S3=True
 
-STATIC_URL = '/static/'
+# if USE_S3:
+#     # aws settings
+#     AWS_ACCESS_KEY_ID = 'AWS_ACCESS_KEY_ID'
+#     AWS_SECRET_ACCESS_KEY = 'AWS_SECRET_ACCESS_KEY'
+#     AWS_STORAGE_BUCKET_NAME = 'feast-freedom8'
+#     AWS_DEFAULT_ACL = None
+#     AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
+#     AWS_S3_OBJECT_PARAMETERS = {'CacheControl': 'max-age=86400'}
+#     # s3 static settings
+#     STATIC_LOCATION = 'static'
+#     STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{STATIC_LOCATION}/'
+#     STATICFILES_STORAGE = 'feastfreedom.storage_backends.StaticStorage'
+#     # s3 public media settings
+#     PUBLIC_MEDIA_LOCATION = 'media'
+#     MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{PUBLIC_MEDIA_LOCATION}/'
+#     DEFAULT_FILE_STORAGE = 'feastfreedom.storage_backends.PublicMediaStorage'
+#     # s3 private media settings
+#     PRIVATE_MEDIA_LOCATION = 'private'
+#     PRIVATE_FILE_STORAGE = 'feastfreedom.storage_backends.PrivateMediaStorage'
+# else:
+#     STATIC_URL = '/staticfiles/'
+#     STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+#     MEDIA_URL = '/mediafiles/'
+#     MEDIA_ROOT = os.path.join(BASE_DIR, 'mediafiles')
 
-# Default primary key field type
-# https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
-
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+# STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
