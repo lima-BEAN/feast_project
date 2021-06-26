@@ -20,7 +20,7 @@ def home(request):
     return HttpResponse("It works")
 
 #class HomePageView(TemplateView):
-#    template_name = "apps/home.html"
+#    template_name = "kitchen/home.html"
 
 #    def get_context_data(self, **kwargs):
 #        context = super().get_context_data(**kwargs)
@@ -44,7 +44,7 @@ class KitchenCreateView(CreateView):
     model = Kitchen
     fields = ['name', 'open_time', 'close_time']
     template_name = 'kitchen/kitchen_create.html'
-    success_url = reverse_lazy('kitchen:home')
+    success_url = reverse_lazy('kitchen:index')
     #TODO: # login_url = '/login/'
 
 class KitchenUpdateView(UpdateView):
@@ -52,13 +52,13 @@ class KitchenUpdateView(UpdateView):
     fields = ['name',  'open_time', 'close_time']
     template_name = 'kitchen/kitchen_update.html'
     template_name_suffix = '_update_form'
-    success_url = reverse_lazy('kitchen:home')
+    success_url = reverse_lazy('kitchen:index')
     #TODO # login_url = '/login/'
 
 class KitchenDeleteView(DeleteView):
     model = Kitchen
     template_name = 'kitchen/kitchen_confirm_delete.html'
-    success_url = reverse_lazy('kitchen:home')
+    success_url = reverse_lazy('kitchen:index')
     #TODO: # login_url = '/login/'
 
 

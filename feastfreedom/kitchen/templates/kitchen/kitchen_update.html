@@ -1,5 +1,10 @@
 {% extends "base.html" %}
 
 {% block content %}
-  update page
+      <h1>{{object.name}}</h1>
+        <ul>
+          <li>KITCHEN Name: {{object.name}}</li>
+        </ul>
+      <h3>Go back to <a href="{% url 'kitchen:index' %}">Kitchen Catalog</a></h3>
+    <a href="{% url 'kitchen:home' %}">  <h3>Go HOME</a></h3>
 {% endblock %}

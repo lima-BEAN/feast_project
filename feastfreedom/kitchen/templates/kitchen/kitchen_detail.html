@@ -1,5 +1,14 @@
 {% extends "base.html" %}
 
 {% block content %}
-  detail page
+      <h1>{{object.name}}</h1>
+        <ul>
+          <li>Kitchen Name: {{object.name}}</li>
+        </ul>
+
+      <h5><a href="{% url 'kitchen:kitchen_create' %}">Create New Kitchen</a></h5>
+      <h5><a href="{% url 'kitchen:kitchen_update' object.id %}">Update Kitchen</a></h5>
+      <h5><a href="{% url 'kitchen:kitchen_confirm_delete' object.id %}">Delete Kitchen</a></h5>
+      <h3>Go back to <a href="{% url 'kitchen:index' %}">Kitchen Catalog</a></h3>
+    <a href="{% url 'kitchen:home' %}">  <h3>Go HOME</a></h3>
 {% endblock %}

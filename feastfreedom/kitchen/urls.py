@@ -29,6 +29,6 @@ urlpatterns = [
     path('kitchen/create', KitchenCreateView.as_view(), name='kitchen_create'),
     path('kitchen/<pk>', KitchenDetailView.as_view(), name='kitchen_detail'),
     path('kitchen/<pk>/update', KitchenUpdateView.as_view(), name='kitchen_update'),
-    path('kitchen/<pk>/delete', KitchenDeleteView.as_view(), name='kitchen_delete'),
+    path('kitchen/<pk>/delete', KitchenDeleteView.as_view(), name='kitchen_confirm_delete'),
 ]
 
