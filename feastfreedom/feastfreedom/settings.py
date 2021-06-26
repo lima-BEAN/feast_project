@@ -22,7 +22,11 @@ SECRET_KEY = 'django-insecure-#&v@h(kr@s##ko#d!-(8kpo&qlxfux1wu9dnuef7)b-!^-1uh+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['100.24.4.172']
+ALLOWED_HOSTS = [
+        '*'
+        #'100.24.4.172', 
+        #'ec2-100-24-4-172.compute-1.amazonaws.com',
+]
 
 
 # Application definition
@@ -74,25 +78,26 @@ WSGI_APPLICATION = 'feastfreedom.wsgi.application'
 
 DATABASES = {
     'default': {
-<<<<<<< HEAD
         'ENGINE': 'django.db.backends.sqlite3',
-<<<<<<< HEAD
+        #'NAME': 'db.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
-=======
+    }
+}
+
+
+
+"""
+DATABASES = {
+    'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'feastfreedom',
         'USENAME': 'root',
         'PASSWORD': 'feastfreedom',
         'HOST': 'database-2.ceniuyg93mtq.us-east-1.rds.amazonaws.com',
         'PORT': '3306'
->>>>>>> 0bc9d99d5bc3cd9b6709ca976bed346df6bbe650
-=======
-        #'NAME': BASE_DIR / 'db.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
->>>>>>> aqil
     }
-
 }
+"""
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -156,4 +161,4 @@ else:
     MEDIA_URL = '/mediafiles/'
     MEDIA_ROOT = os.path.join(BASE_DIR, 'mediafiles')
 
-STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
+STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static')) 
